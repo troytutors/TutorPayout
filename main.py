@@ -1,4 +1,4 @@
-from payrollmanager import PayrollManager
+from payout_modules.payroll_manager import PayrollManager
 
 PAYLOAD_PATH = "tutorpayrollpayload.json"
 

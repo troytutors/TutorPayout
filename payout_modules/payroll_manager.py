@@ -1,5 +1,5 @@
 from typing import Text, List, Mapping, Any
-from stripedeposit import StripeDeposit
+from stripe_deposit import StripeDeposit
 from datetime import datetime
 from tutor import Tutor
 import pandas as pd
