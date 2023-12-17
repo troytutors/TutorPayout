@@ -1,0 +1,19 @@
+{
+    "periodName": "12-2023",
+    "squareInvoiceSummaryFilePath": "pathToSquareInvoiceCSV",
+    "payrollDocumentPath": "pathToOutputDocumentation",
+    "customerServiceFeeFraction": 0.065,
+    "tutors": [
+        {
+            "name": "Tutor's Name",
+            "tutorID": "Tutor's Square ID",
+            "stripeEmail": "Tutor's Stripe email",
+            "school": "University the Tutor Tutors At",
+            "tutorCut": 0.99
+        }
+    ],
+    "excludeFromPayoutsAndStripeTransfers": [
+        "Tutor Square ID to Exclude",
+        "Tutor Square ID to Exclude"
+    ]
+}
