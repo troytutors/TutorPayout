@@ -37,7 +37,7 @@ class PayrollManager:
         # The only situation where we don't document is when we are seeing how much we should send to Stripe
         if self.action != "calculate_stripe_transfer":
             documentation = pd.DataFrame(direct_deposit_records, columns=self.documentation_columns)
-            documentation.to_csv(f"{self.payload['payrollDocumentPath']}/{self.payload['periodName']}_{datetime.now().time()}")
+            documentation.to_csv(f"{self.payload['payrollDocumentPath']}/{self.payload['periodName']}_{datetime.now().time()}.csv", index=False)
         # Output for when stripe transfer amount is requested
         else:
             print(f"Total to Transfer to Stripe: {direct_deposit_total}")
@@ -67,7 +67,7 @@ class PayrollManager:
     def get_tutors_to_pay(self) -> List[Tutor]:
         # Tutors to pay = {tutors mentioned in payload under "tutors"} - {tutors instructed to be skipped in payload under "excludeFromPayoutsAndStripeTransfers"}
         tutor_ids_in_payload = {tutor_data["tutorID"] for tutor_data in self.payload["tutors"]}
-        tutor_ids_to_exclude = {self.payload["excludeFromPayoutsAndStripeTransfers"]}
+        tutor_ids_to_exclude = set(self.payload["excludeFromPayoutsAndStripeTransfers"])
         tutor_ids_to_pay = tutor_ids_in_payload - tutor_ids_to_exclude
         return [Tutor(tutor_data) for tutor_data in self.payload["tutors"] if tutor_data["tutorID"] in tutor_ids_to_pay]
 
@@ -89,7 +89,7 @@ class PayrollManager:
         # Tutor takehome = tutor revenue / (1 + service fee) * tutor cut
         service_fee_offset_divisor = 1 + self.payload["customerServiceFeeFraction"]
         tutor_takehome = tutor_revenue / service_fee_offset_divisor * tutor.cut
-        print(f"Tutor Takehome: {tutor_revenue}\n")
+        print(f"Tutor Takehome: {tutor_takehome}\n")
         if tutor_takehome > 0 and self.action == "send_direct_deposits":
             # Send direct deposit
             tutor_deposit = StripeDeposit(tutor["stripe_email"], tutor_takehome)
