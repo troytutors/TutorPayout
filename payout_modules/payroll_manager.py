@@ -55,7 +55,7 @@ class PayrollManager:
         # Missing tutors = {tutors from Strip documentation} - {tutors mentioned in payload under "tutors"} - {tutors instructed to be skipped in payload under "excludeFromPayoutsAndStripeTransfers"}
         tutors_to_pay = {self.invoice_data.iloc[row][7].split()[-1].strip("@").strip() for row in range(len(self.invoice_data))}
         tutors_in_payload = {tutor_data["tutorID"] for tutor_data in self.payload["tutors"]}
-        tutors_to_exclude = {self.payload["excludeFromPayoutsAndStripeTransfers"]}
+        tutors_to_exclude = set(self.payload["excludeFromPayoutsAndStripeTransfers"])
         missing_tutors = tutors_to_pay - tutors_in_payload - tutors_to_exclude
         # Raise exception if tutors are missing from payload
         if len(missing_tutors) > 0:
