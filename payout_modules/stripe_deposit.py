@@ -1,6 +1,6 @@
+from payout_modules.tutor import Tutor
 from typing import Text, Tuple, Any
 from dotenv import load_dotenv
-from tutor import Tutor
 import stripe
 import math
 import os

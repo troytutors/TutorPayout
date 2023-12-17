@@ -17,8 +17,8 @@ def request_action():
 
 
 def main():
-    action = request_action(PAYLOAD_PATH)
-    pm = PayrollManager(action)
+    action = request_action()
+    pm = PayrollManager(PAYLOAD_PATH)
     pm.handle_request(action)
 
 

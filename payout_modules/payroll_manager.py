@@ -1,7 +1,7 @@
+from payout_modules.stripe_deposit import StripeDeposit
 from typing import Text, List, Mapping, Any
-from stripe_deposit import StripeDeposit
+from payout_modules.tutor import Tutor
 from datetime import datetime
-from tutor import Tutor
 import pandas as pd
 import json
 
