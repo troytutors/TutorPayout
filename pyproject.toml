@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "tutorpayout"
 version = "0.1.0"
-description = ""
+description = "Tutor Direct Deposit, Documentation, and Bank Transfer Software"
 authors = ["Zachary Nawrocki <zacknawrocki@gmail.com>"]
 
 [tool.poetry.dependencies]
