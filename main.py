@@ -6,8 +6,8 @@ PAYLOAD_PATH = "tutorpayrollpayload.json"
 def request_action():
     print("Would you like to")
     print("1. Check how much you should transfer to Stripe.")
-    print("2. Send and document tutors monthly direct deposit.")
-    print("3. Document tutors monthly direct deposit.")
+    print("2. Send and document tutors' monthly direct deposits.")
+    print("3. Document tutors' monthly direct deposits.")
     command_actions = {"1": "calculate_stripe_transfer", "2": "send_direct_deposits", "3": "document_only"}
     command = None
     # Let the user specify how to use TutorPayout via the command line
