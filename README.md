@@ -50,7 +50,7 @@ To launch TutorPayout, run ```poetry run python main.py```. Once launching, you 
 from the command line:
 
 1. Check how much you should transfer to Stripe.
-2. Send and document tutors' monthly direct deposit.
+2. Send and document tutors' monthly direct deposit. It is highly recommended you first run option 3 first, to confirm everything is correct. For example, if Square ever changes its invoice export or TutorBiller ever makes changes to its invoice template, this could prevent option 2 from working correctly, so it's best to always run option 3 first.
 3. Document tutors' monthly direct deposit.
 
 Enter "1" on the command line to see how much money to send to Stripe from your bank, in advance

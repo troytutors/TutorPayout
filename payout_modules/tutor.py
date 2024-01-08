@@ -1,4 +1,4 @@
-from typing import Text, Mapping, Any
+from typing import Any, Mapping, Text
 
 
 class Tutor:
